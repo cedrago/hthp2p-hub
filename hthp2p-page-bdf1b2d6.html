@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 持续关注与收藏导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f2;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0 1.2rem;
+      border-bottom: 1px solid #e2ddd6;
+    }
+
+    .site-identity {
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #2c2b28;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b3a37;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #9b856b;
+    }
+
+    .nav-links .active {
+      color: #7f6a52;
+      font-weight: 500;
+      border-bottom: 1.5px solid #d9cdbd;
+      padding-bottom: 2px;
+    }
+
+    /* 主体区块 */
+    .hero {
+      margin: 3rem 0 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #1e1d1b;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #4a4742;
+      max-width: 75%;
+    }
+
+    @media (max-width: 640px) {
+      .hero p {
+        max-width: 100%;
+      }
+    }
+
+    .intro-block {
+      background: #ffffffec;
+      padding: 2rem 2.2rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      margin: 2rem 0 3.2rem;
+      border-left: 4px solid #cebcab;
+    }
+
+    .intro-block p {
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-block a {
+      color: #7f6a52;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: background 0.1s;
+    }
+
+    .intro-block a:hover {
+      background: #f0e9e0;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    /* 三场景卡片 */
+    .scenes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 3rem 0 3.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .scenes {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .scene-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #ece6dd;
+      transition: box-shadow 0.25s, transform 0.15s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #2c2b28;
+      letter-spacing: -0.01em;
+    }
+
+    .scene-card .icon {
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .scene-card p {
+      color: #52504b;
+      font-size: 0.95rem;
+    }
+
+    /* 提示框 / 引用 */
+    .callout-box {
+      background: #f2ede6;
+      border-radius: 18px;
+      padding: 1.8rem 2.2rem;
+      margin: 2.8rem 0 3.2rem;
+      border: 1px solid #dfd7cc;
+      color: #3d3b37;
+      font-size: 0.98rem;
+    }
+
+    .callout-box strong {
+      color: #2c2b28;
+      font-weight: 600;
+    }
+
+    .callout-box .quote-mark {
+      font-size: 2.2rem;
+      line-height: 1;
+      color: #b7a793;
+      margin-right: 0.25rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2rem 0 3rem;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #cebcab;
+      padding-left: 1rem;
+      color: #2c2b28;
+    }
+
+    .faq-item {
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid #e8e1d7;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #2c2b28;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #5c5953;
+      font-size: 0.95rem;
+    }
+
+    .faq-a a {
+      color: #7f6a52;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .faq-a a:hover {
+      background: #e9dfd3;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e2ddd6;
+      font-size: 0.85rem;
+      color: #827e77;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note a {
+      color: #7f6a52;
+      text-decoration: none;
+      border-bottom: 1px dotted #c6b9a9;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #7f6a52;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <span class="site-identity">华体会</span>
+    <div class="nav-links">
+      <a href="#" class="active">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">收藏</a>
+    </div>
+  </nav>
+
+  <!-- Hero 区 -->
+  <div class="hero">
+    <h1>再次访问 · 持续关注</h1>
+    <p>轻量导航与场景指引，便于你随时回看、收藏，并在需要时快速定位。</p>
+  </div>
+
+  <!-- 核心介绍（引用嵌入链接） -->
+  <div class="intro-block">
+    <p>对于经常查阅或研究 <a href="https://hthp2p.com.cn">华体会</a> 相关内容的朋友，保持入口的整洁与直达效率很重要。这个页面不替代原有服务，而是围绕「再次访问」与「持续关注」两种习惯，整理出三个常见场景与一组快速说明。</p>
+    <p>若你此前已使用过平台，可直接通过上方导航或下方场景模块定位；若你是初次接触，建议先收藏 <a href="https://hthp2p.com.cn">华体会</a> 主页，便于日后回看。所有描述均基于实际使用流程，不做过度承诺。</p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <div class="icon">📌</div>
+      <h3>日常浏览与查阅</h3>
+      <p>适合快速浏览近期更新、查阅历史条目或回顾收藏内容。保持标签页常开或加入书签，每次打开即可延续上次进度。</p>
+    </div>
+    <div class="scene-card">
+      <div class="icon">🔄</div>
+      <h3>对比与反复参照</h3>
+      <p>当你需要比对不同时期的信息，或反复确认同一组数据时，建议使用多标签或分屏方式。可配合浏览器集锦功能保持上下文连贯。</p>
+    </div>
+    <div class="scene-card">
+      <div class="icon">📋</div>
+      <h3>记录与轻度整理</h3>
+      <p>将关键内容摘录至本地笔记或轻量文档，同时保留原始链接。推荐搭配稍后读服务，以便跨设备同步与标注。</p>
+    </div>
+  </div>
+
+  <!-- 引用 / 提示框 -->
+  <div class="callout-box">
+    <span class="quote-mark">“</span> 对于需要反复访问的站点，<strong>建立专属书签或分组</strong>往往比每次搜索更省时。<br>
+    另外，定期清理缓存与收藏夹中失效的链接，能维持收藏体系的健康度。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h2>常见说明 · 摘要</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">如何快速回到 <a href="https://hthp2p.com.cn">华体会</a> 主页？</div>
+      <div class="faq-a">将链接添加至浏览器书签栏或收藏夹，建议命名为「华体会」以便检索。也可使用新标签页的固定标签功能。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">页面信息是否会随时变化？</div>
+      <div class="faq-a">任何平台内容均可能随运营调整而更新，建议定期查看来源。本介绍页仅提供导航与场景参考，不代管具体数据。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">收藏后需要注意什么？</div>
+      <div class="faq-a">若长期未访问，可先检查链接是否仍有效。部分服务可能调整域名或路径，保持关注官方动态即可。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">本页面是否代表官方？</div>
+      <div class="faq-a">不，这是一个独立的轻量导航页，仅供个人或团队内部使用。所有指向 <a href="https://hthp2p.com.cn">华体会</a> 的链接均直接跳转至原站。</div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <a href="https://hthp2p.com.cn">华体会</a> · 持续关注页 · 仅作导航与场景示意
+  </div>
+
+</div>
+</body>
+</html>
